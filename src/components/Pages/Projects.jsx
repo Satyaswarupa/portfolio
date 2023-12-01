@@ -19,14 +19,14 @@ const projects = [
   },
   {
     id: 3,
-    name: 'Project 2',
+    name: 'Project 3',
     image: 'https://i.ibb.co/tsjBr0m/Screenshot-13.png',
     description: 'Description of Project 2.',
     link: 'https://arphysics.netlify.app/',
   },
   {
     id: 4,
-    name: 'Project 2',
+    name: 'Project 4',
     image: 'https://i.ibb.co/pdxX3NS/Screenshot-12.png',
     description: 'Description of Project 2.',
     link: 'https://satyaswarupa.github.io/crypto-react/',
