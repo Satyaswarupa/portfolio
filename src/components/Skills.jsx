@@ -3,7 +3,7 @@ import "../styles/skills.scss"
 
 
 const COLORS = ['#bbf7d0', '#99f6e4', '#bfdbfe', '#ddd6fe', '#f5d0fe', '#fed7aa', '#fee2e2'];
-const TAGS = ['HTML', 'CSS', 'SASS', 'JAVASCRIPT', 'REACT JS', 'MANGODB', 'NODEJS', 'EXPRESS JS', 'TAILWIND CSS',];
+const TAGS = ['HTML', 'CSS', 'SASS', 'JAVASCRIPT', 'REACT JS', 'MONGODB', 'NODEJS', 'EXPRESS JS', 'TAILWIND CSS',];
 const DURATION = 15000;
 const ROWS = 5;
 const TAGS_PER_ROW = 5;
