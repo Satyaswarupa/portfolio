@@ -5,7 +5,7 @@ import "../styles/navcontaint.scss"
 const Navbar = () => {
   return (
     <div className="navcontaint">
-      <NavLink to="/about" activeClassName="active">
+      <NavLink to="/" activeClassName="active">
         About
       </NavLink>
       <NavLink to="/projects" exact activeClassName="active">
