@@ -1,0 +1,72 @@
+.edu {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  color: aliceblue;
+}
+
+.edu1 {
+  width: 50%;
+  height: 15vh;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.455);
+}
+
+.edu2 {
+  width: 50%;
+  height: 15vh;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.455);
+}
+
+.edu3 {
+  width: 50%;
+  height: 15vh;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.455);
+}
+
+.edu1 h2,
+.edu1 h4,
+.edu1 p,
+.edu2 h2,
+.edu2 h4,
+.edu2 p,
+.edu3 h2,
+.edu3 h4,
+.edu3 p {
+  margin: 5px 0px 0px 10px;
+}
+
+@media screen and (max-width: 960px) {
+  .edu1 {
+    width: 70%;
+    height: 15vh;
+    border: 1px solid rgba(242, 255, 0, 0.571);
+    border-radius: 10px;
+  }
+
+  .edu2 {
+    width: 70%;
+    height: 15vh;
+    border: 1px solid rgba(26, 255, 0, 0.571);
+    border-radius: 10px;
+  }
+
+  .edu3 {
+    width: 70%;
+    height: 15vh;
+    border: 1px solid rgba(179, 0, 255, 0.571);
+    border-radius: 10px;
+  }
+}

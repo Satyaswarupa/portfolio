@@ -1,0 +1,128 @@
+.about {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.about2 {
+  height: 70vh;
+  width: 90%;
+  display: flex;
+  gap: 20px;
+}
+
+.left {
+  height: 70vh;
+  width: 20%;
+  background-color: transparent;
+  border-radius: 50px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.455);
+
+  h3 {
+    font-family: "Acme", sans-serif;
+    font-size: 35px;
+    color: aliceblue;
+  }
+
+  h4 {
+    font-family: "Acme", sans-serif;
+    font-size: 25px;
+    color: aliceblue;
+  }
+}
+
+.right {
+  height: 70vh;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 100px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: aliceblue;
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.455);
+
+  p {
+    width: 70%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  }
+}
+
+
+@media screen and (max-width: 789px) {
+  .about {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about2 {
+    height: 70vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 60px;
+    gap: 5px;
+  }
+  
+  .left {
+    height: 20vh;
+    width: 90%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.455);
+    gap: 10px;
+  
+    h3 {
+      font-family: "Acme", sans-serif;
+      font-size: 30px;
+      color: aliceblue;
+      
+    }
+  
+    h4 {
+      font-family: "Acme", sans-serif;
+      font-size: 20px;
+      color: aliceblue;
+    }
+  }
+  
+  .right {
+    height: 70vh;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: aliceblue;
+    box-shadow: 0 4px 4px rgba(255, 255, 255, 0.455);
+  
+    p {
+      width: 80%;
+      height: 50vh;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+     margin-top: 40px;
+     text-align: center;
+    }
+  }
+}

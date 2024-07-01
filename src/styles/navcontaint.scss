@@ -1,0 +1,55 @@
+.navcontaint {
+    display: flex;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    margin-top: 100px;
+    
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      position: relative;
+      padding-bottom: 5px;
+  
+      &.active::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px;
+        height: 2px;
+        background-color: #3498db;
+      }
+    }
+  }
+  
+
+  @media screen and (max-width: 789px) {
+    .navcontaint {
+      display: flex;
+      gap: 15px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      margin-top: 100px;
+      
+      
+      a {
+        text-decoration: none;
+        color: #ffffff;
+        position: relative;
+        padding-bottom: 5px;
+    
+        &.active::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -5px;
+          height: 2px;
+          background-color: #3498db;
+        }
+      }
+    }
+  }
