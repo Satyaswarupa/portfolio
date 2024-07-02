@@ -92,7 +92,7 @@ const Project = () => {
         <div className="card-content">
           <div className="name">Cart app</div>
           <div className="description">
-            <p>This is a brief description of John Doe.</p>
+            <p>A cart app where i use the redux js </p>
             <div className="buttons">
             <a href="https://miniapplestore.vercel.app/" className="button-4"><MdOutlineWifiTethering /></a>
             <button className="button-4"><IoCodeSlash /></button>
