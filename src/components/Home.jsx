@@ -138,7 +138,7 @@ const Home = () => {
             Hire Me
           </motion.a>
           <motion.a
-            href="/projects" // Change to your projects section or link
+            href="https://github.com/Satyaswarupa" // Change to your projects section or link
             className="btn"
             initial={{
               y: "-100%",
@@ -152,7 +152,7 @@ const Home = () => {
               duration: 4,
             }}
           >
-            View Projects
+            GitHub
           </motion.a>
         </div>
       </div>
