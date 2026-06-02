@@ -1,0 +1,74 @@
+import Counter from "./Counter";
+import { IconCode, IconWhatsApp, IconArrowDown } from "./icons";
+import { WHATSAPP_NUMBER } from "./data";
+
+export default function Hero({ scrollTo }) {
+  return (
+    <section
+      id="hero"
+      style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
+      className="bg-grid"
+    >
+      <div className="blob" style={{ width: 600, height: 600, background: "#f5c400", top: -120, left: -200 }} />
+      <div className="blob" style={{ width: 480, height: 480, background: "#f59e0b", bottom: -100, right: -150 }} />
+      <div className="blob" style={{ width: 280, height: 280, background: "#fbbf24", top: "38%", left: "50%", opacity: 0.07 }} />
+
+      <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "80px 24px 0", maxWidth: 860, margin: "0 auto" }}>
+        {/* Availability badge */}
+        <div style={{
+          display: "inline-flex", alignItems: "center", gap: 8,
+          padding: "8px 20px",
+          background: "rgba(37,211,102,0.1)", border: "1px solid rgba(37,211,102,0.25)",
+          borderRadius: 9999, marginBottom: 32,
+        }}>
+          <span style={{ width: 8, height: 8, background: "#25d366", borderRadius: "50%", display: "inline-block" }} className="pulse-glow" />
+          <span style={{ fontSize: 13, color: "#25d366", fontWeight: 500 }}>Available for new projects</span>
+        </div>
+
+        <h1 style={{ fontSize: "clamp(44px, 7.5vw, 90px)", fontWeight: 900, lineHeight: 1, letterSpacing: "-3px", marginBottom: 24 }}>
+          <span style={{ color: "#f5f0e8" }}>Satyaswarupa</span>
+          <br />
+          <span className="gradient-text text-glow">Parida</span>
+        </h1>
+
+        <p style={{ fontSize: "clamp(15px, 2.2vw, 20px)", color: "rgba(245,240,232,0.6)", maxWidth: 580, margin: "0 auto 14px", lineHeight: 1.7, fontWeight: 400 }}>
+          MERN Stack Developer · UI/UX Enthusiast · Open Source Contributor
+        </p>
+        <p style={{ fontSize: 15, color: "rgba(245,240,232,0.4)", maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.8 }}>
+          I craft high-performance web applications that users love. Passionate about clean code, beautiful design, and innovative solutions.
+        </p>
+
+        <div className="hero-btns" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 64 }}>
+          <button onClick={() => scrollTo("#projects")} className="btn-yellow" style={{ padding: "14px 32px" }}>
+            <IconCode size={18} /> View Projects
+          </button>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+            <IconWhatsApp size={18} /> Chat on WhatsApp
+          </a>
+        </div>
+
+        {/* Stats */}
+        <div className="hero-stats" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, maxWidth: 480, margin: "0 auto" }}>
+          {[
+            { val: 10, suffix: "+", label: "Projects Done" },
+            { val: 2,  suffix: "+", label: "Years Exp." },
+            { val: 0, suffix: "+", label: "Happy Clients" },
+          ].map(({ val, suffix, label }) => (
+            <div key={label} style={{ textAlign: "center" }}>
+              <div style={{ fontSize: "clamp(26px, 4.5vw, 38px)", fontWeight: 900, color: "#f5c400" }}>
+                <Counter target={val} suffix={suffix} />
+              </div>
+              <div style={{ fontSize: 12, color: "rgba(245,240,232,0.4)", marginTop: 4 }}>{label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Scroll hint */}
+        <div style={{ marginTop: 72, display: "flex", flexDirection: "column", alignItems: "center", gap: 8, color: "rgba(245,240,232,0.3)" }} className="float">
+          <span style={{ fontSize: 12 }}>scroll down</span>
+          <IconArrowDown size={18} />
+        </div>
+      </div>
+    </section>
+  );
+}

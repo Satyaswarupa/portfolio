@@ -1,0 +1,73 @@
+import SectionHeading from "./SectionHeading";
+import ContactForm from "./ContactForm";
+import { IconWhatsApp, IconMail, IconLinkedIn, IconGithub } from "./icons";
+import { WHATSAPP_NUMBER } from "./data";
+
+export default function Contact() {
+  return (
+    <section id="contact" style={{ padding: "120px 24px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <SectionHeading label="Contact" title="Let's" highlight="Connect" />
+        <p style={{ textAlign: "center", color: "rgba(245,240,232,0.5)", fontSize: 16, maxWidth: 480, margin: "-36px auto 48px" }}>
+          Have a project in mind? I'd love to hear about it. Let's create something amazing together.
+        </p>
+
+        <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: 48, alignItems: "start" }}>
+          {/* Info */}
+          <div>
+            <h3 style={{ fontWeight: 700, fontSize: 22, marginBottom: 24 }}>Get in Touch</h3>
+
+            {/* WhatsApp CTA */}
+            <div style={{
+              background: "linear-gradient(135deg, rgba(37,211,102,0.08), rgba(18,140,126,0.08))",
+              border: "1px solid rgba(37,211,102,0.2)",
+              borderRadius: 16, padding: 24, marginBottom: 24,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(37,211,102,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#25d366" }}>
+                  <IconWhatsApp size={24} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: 15 }}>WhatsApp</div>
+                  <div style={{ color: "#25d366", fontSize: 14 }}>+91 7008671443</div>
+                </div>
+              </div>
+              <p style={{ color: "rgba(245,240,232,0.5)", fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
+                Fastest way to reach me! Usually respond within minutes.
+              </p>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: "100%", padding: "12px 20px", fontSize: 14 }}>
+                <IconWhatsApp size={18} /> Start WhatsApp Chat
+              </a>
+            </div>
+
+            {/* Other contacts */}
+            {[
+              { icon: <IconMail size={20} />, label: "Email", value: "satyaswarupaparida130@gmail.com", color: "#f5c400" },
+              { icon: <IconLinkedIn size={20} />, label: "LinkedIn", value: "linkedin.com/in/satyaswarupa", color: "#0077b5" },
+              { icon: <IconGithub size={20} />, label: "GitHub", value: "github.com/satyaswarupa", color: "#f5f0e8" },
+            ].map(({ icon, label, value, color }) => (
+              <div key={label} style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: `${color}18`, display: "flex", alignItems: "center", justifyContent: "center", color, flexShrink: 0 }}>
+                  {icon}
+                </div>
+                <div>
+                  <div style={{ fontSize: 12, color: "rgba(245,240,232,0.4)", marginBottom: 2 }}>{label}</div>
+                  <div style={{ fontSize: 14, fontWeight: 500, color: "#f5f0e8" }}>{value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Form */}
+          <div className="glass-card" style={{ borderRadius: 24, padding: 40 }}>
+            <h3 style={{ fontWeight: 700, fontSize: 20, marginBottom: 8 }}>Send a Message</h3>
+            <p style={{ color: "rgba(245,240,232,0.45)", fontSize: 14, marginBottom: 28 }}>
+              Fill in the form and I'll receive your message directly on WhatsApp.
+            </p>
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

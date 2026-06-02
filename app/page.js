@@ -1,65 +1,92 @@
-import Image from "next/image";
+"use client";
+
+import { useState, useEffect } from "react";
+import Sidebar from "./components/Sidebar";
+import MobileTopbar from "./components/MobileTopbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import { IconWhatsApp } from "./components/icons";
+import { WHATSAPP_NUMBER } from "./components/data";
 
 export default function Home() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const ids = ["hero", "about", "skills", "projects", "experience", "contact"];
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    ids.forEach((id) => { const el = document.getElementById(id); if (el) obs.observe(el); });
+    return () => obs.disconnect();
+  }, []);
+
+  const scrollTo = (id) => {
+    setSidebarOpen(false);
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="noise" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
+
+      {/* Animated glow orbs */}
+      <div className="glow-bg">
+        <div className="glow-orb glow-orb-1" />
+        <div className="glow-orb glow-orb-2" />
+        <div className="glow-orb glow-orb-3" />
+      </div>
+
+      <Sidebar
+        sidebarOpen={sidebarOpen}
+        activeSection={activeSection}
+        scrollTo={scrollTo}
+      />
+
+      {sidebarOpen && (
+        <div className="sidebar-backdrop" onClick={() => setSidebarOpen(false)} />
+      )}
+
+      <MobileTopbar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+
+      <div className="main-content-wrapper">
+        <Hero scrollTo={scrollTo} />
+        <About scrollTo={scrollTo} />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+        <Footer />
+      </div>
+
+      {/* Floating WhatsApp button */}
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          position: "fixed", bottom: 28, right: 28, zIndex: 200,
+          width: 56, height: 56, borderRadius: "50%",
+          background: "linear-gradient(135deg,#25d366,#128c7e)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          color: "white", boxShadow: "0 8px 30px rgba(37,211,102,0.5)",
+          transition: "transform 0.2s, box-shadow 0.2s",
+          textDecoration: "none",
+        }}
+        title="Chat on WhatsApp"
+        onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(37,211,102,0.7)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 30px rgba(37,211,102,0.5)"; }}
+      >
+        <IconWhatsApp size={26} />
+      </a>
+
     </div>
   );
 }
