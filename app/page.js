@@ -14,6 +14,7 @@ import { IconWhatsApp } from "./components/icons";
 import { WHATSAPP_NUMBER } from "./components/data";
 import Loader from "./components/Loader";
 import ThreeBackground from "./components/ThreeBackground";
+import { AudioProvider } from "./components/AudioManager";
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -43,11 +44,11 @@ export default function Home() {
   }, [loading]);
 
   return (
-    <>
+    <AudioProvider>
       {loading && <Loader onFinish={() => setLoading(false)} />}
       <div className="noise page-content" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
 
-      <ThreeBackground />
+      <ThreeBackground activeSection={activeSection} />
 
       {/* Animated glow orbs */}
       <div className="glow-bg">
@@ -100,6 +101,6 @@ export default function Home() {
       </a>
 
       </div>
-    </>
+    </AudioProvider>
   );
 }

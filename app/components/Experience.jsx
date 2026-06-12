@@ -1,5 +1,6 @@
 import SectionHeading from "./SectionHeading";
 import { experience } from "./data";
+import Reveal from "./Reveal";
 
 export default function Experience() {
   return (
@@ -9,7 +10,7 @@ export default function Experience() {
         <div style={{ position: "relative", paddingLeft: 56 }}>
           <div className="timeline-line" />
           {experience.map((exp, i) => (
-            <div key={i} style={{ position: "relative", marginBottom: 40 }}>
+            <Reveal key={i} delay={i * 100} style={{ position: "relative", marginBottom: 40 }}>
               <div style={{
                 position: "absolute", left: -46, top: 6,
                 width: 16, height: 16, borderRadius: "50%",
@@ -27,7 +28,7 @@ export default function Experience() {
                 <p style={{ color: "#f59e0b", fontSize: 14, fontWeight: 600, marginBottom: 12 }}>{exp.company}</p>
                 <p style={{ color: "rgba(245,240,232,0.55)", fontSize: 14, lineHeight: 1.8 }}>{exp.desc}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

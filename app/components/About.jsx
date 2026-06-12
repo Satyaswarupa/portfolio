@@ -1,13 +1,16 @@
 import { IconWhatsApp, IconMail } from "./icons";
 import { WHATSAPP_NUMBER } from "./data";
+import { useSound } from "./AudioManager";
+import Reveal from "./Reveal";
 
 export default function About({ scrollTo }) {
+  const { playHover, playClick } = useSound();
   return (
     <section id="about" style={{ padding: "120px 24px", maxWidth: 1100, margin: "0 auto" }}>
       <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
 
         {/* Avatar */}
-        <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+        <Reveal style={{ position: "relative", display: "flex", justifyContent: "center" }} className="about-avatar">
           <div style={{ position: "relative", zIndex: 1 }}>
             <div
               style={{
@@ -31,10 +34,10 @@ export default function About({ scrollTo }) {
           </div>
           <div style={{ position: "absolute", width: 300, height: 300, borderRadius: "50%", border: "1px solid rgba(245,196,0,0.12)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }} />
           <div style={{ position: "absolute", width: 360, height: 360, borderRadius: "50%", border: "1px solid rgba(245,196,0,0.06)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }} />
-        </div>
+        </Reveal>
 
         {/* Text */}
-        <div>
+        <Reveal delay={120}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
             <div style={{ width: 40, height: 2, background: "linear-gradient(90deg,#f5c400,#f59e0b)", borderRadius: 9999 }} />
             <span style={{ fontSize: 13, color: "#f5c400", fontWeight: 600, textTransform: "uppercase", letterSpacing: 2 }}>About Me</span>
@@ -79,14 +82,14 @@ export default function About({ scrollTo }) {
             ))}
           </div>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ padding: "10px 24px", fontSize: 14 }}>
+            <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ padding: "10px 24px", fontSize: 14 }} onMouseEnter={playHover} onClick={playClick}>
               <IconWhatsApp size={16} /> Let's Talk
             </a>
-            <button onClick={() => scrollTo("#contact")} className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
+            <button onClick={() => { playClick(); scrollTo("#contact"); }} onMouseEnter={playHover} className="btn-primary" style={{ padding: "10px 24px", fontSize: 14 }}>
               <IconMail size={16} /> Send Email
             </button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

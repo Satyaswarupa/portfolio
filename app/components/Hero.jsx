@@ -1,8 +1,10 @@
 import Counter from "./Counter";
 import { IconCode, IconWhatsApp, IconArrowDown } from "./icons";
 import { WHATSAPP_NUMBER } from "./data";
+import { useSound } from "./AudioManager";
 
 export default function Hero({ scrollTo }) {
+  const { playHover, playClick } = useSound();
   return (
     <section
       id="hero"
@@ -39,10 +41,10 @@ export default function Hero({ scrollTo }) {
         </p>
 
         <div className="hero-btns" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 64 }}>
-          <button onClick={() => scrollTo("#projects")} className="btn-yellow" style={{ padding: "14px 32px" }}>
+          <button onClick={() => { playClick(); scrollTo("#projects"); }} onMouseEnter={playHover} className="btn-yellow" style={{ padding: "14px 32px" }}>
             <IconCode size={18} /> View Projects
           </button>
-          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" onMouseEnter={playHover} onClick={playClick}>
             <IconWhatsApp size={18} /> Chat on WhatsApp
           </a>
         </div>

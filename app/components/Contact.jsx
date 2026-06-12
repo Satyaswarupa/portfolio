@@ -2,8 +2,11 @@ import SectionHeading from "./SectionHeading";
 import ContactForm from "./ContactForm";
 import { IconWhatsApp, IconMail, IconLinkedIn, IconGithub } from "./icons";
 import { WHATSAPP_NUMBER } from "./data";
+import { useSound } from "./AudioManager";
+import Reveal from "./Reveal";
 
 export default function Contact() {
+  const { playHover, playClick } = useSound();
   return (
     <section id="contact" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
@@ -14,7 +17,7 @@ export default function Contact() {
 
         <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: 48, alignItems: "start" }}>
           {/* Info */}
-          <div>
+          <Reveal>
             <h3 style={{ fontWeight: 700, fontSize: 22, marginBottom: 24 }}>Get in Touch</h3>
 
             {/* WhatsApp CTA */}
@@ -35,7 +38,7 @@ export default function Contact() {
               <p style={{ color: "rgba(245,240,232,0.5)", fontSize: 13, lineHeight: 1.7, marginBottom: 16 }}>
                 Fastest way to reach me! Usually respond within minutes.
               </p>
-              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: "100%", padding: "12px 20px", fontSize: 14 }}>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" style={{ width: "100%", padding: "12px 20px", fontSize: 14 }} onMouseEnter={playHover} onClick={playClick}>
                 <IconWhatsApp size={18} /> Start WhatsApp Chat
               </a>
             </div>
@@ -56,16 +59,16 @@ export default function Contact() {
                 </div>
               </div>
             ))}
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <div className="glass-card" style={{ borderRadius: 24, padding: 40 }}>
+          <Reveal delay={120} className="glass-card" style={{ borderRadius: 24, padding: 40 }}>
             <h3 style={{ fontWeight: 700, fontSize: 20, marginBottom: 8 }}>Send a Message</h3>
             <p style={{ color: "rgba(245,240,232,0.45)", fontSize: 14, marginBottom: 28 }}>
               Fill in the form and I'll receive your message directly on WhatsApp.
             </p>
             <ContactForm />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

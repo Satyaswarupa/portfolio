@@ -1,15 +1,18 @@
 import SectionHeading from "./SectionHeading";
 import { IconStar, IconGithub, IconExternalLink } from "./icons";
 import { projects } from "./data";
+import { useSound } from "./AudioManager";
+import Reveal from "./Reveal";
 
 export default function Projects() {
+  const { playHover, playClick } = useSound();
   return (
     <section id="projects" style={{ padding: "120px 24px" }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <SectionHeading label="Projects" title="Featured" highlight="Work" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 32 }}>
-          {projects.map((p) => (
-            <div key={p.title} style={{ display: "flex", flexDirection: "column", borderRadius: 16, overflow: "hidden" }}>
+          {projects.map((p, i) => (
+            <Reveal key={p.title} delay={i * 80} style={{ display: "flex", flexDirection: "column", borderRadius: 16, overflow: "hidden" }}>
               {/* Image Container with Shadow */}
               <div
                 style={{
@@ -102,6 +105,7 @@ export default function Projects() {
                         cursor: "pointer",
                       }}
                       onMouseEnter={(e) => {
+                        playHover();
                         e.currentTarget.style.background = `${p.color}40`;
                         e.currentTarget.style.boxShadow = `0 0 12px ${p.color}40`;
                       }}
@@ -109,6 +113,7 @@ export default function Projects() {
                         e.currentTarget.style.background = `${p.color}20`;
                         e.currentTarget.style.boxShadow = "none";
                       }}
+                      onClick={playClick}
                       title="Live demo"
                     >
                       <IconExternalLink size={14} />
@@ -134,6 +139,7 @@ export default function Projects() {
                         cursor: "pointer",
                       }}
                       onMouseEnter={(e) => {
+                        playHover();
                         e.currentTarget.style.background = `${p.color}40`;
                         e.currentTarget.style.boxShadow = `0 0 12px ${p.color}40`;
                       }}
@@ -141,6 +147,7 @@ export default function Projects() {
                         e.currentTarget.style.background = `${p.color}20`;
                         e.currentTarget.style.boxShadow = "none";
                       }}
+                      onClick={playClick}
                       title="GitHub"
                     >
                       <IconGithub size={14} />
@@ -149,7 +156,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

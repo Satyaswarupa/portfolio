@@ -3,6 +3,7 @@ import {
   IconHome, IconUser, IconZap, IconFolder, IconBriefcase,
 } from "./icons";
 import { WHATSAPP_NUMBER } from "./data";
+import { useSound } from "./AudioManager";
 
 const navLinks = [
   { label: "Home",       href: "#hero",       icon: <IconHome /> },
@@ -20,6 +21,7 @@ const quickStats = [
 ];
 
 export default function Sidebar({ sidebarOpen, activeSection, scrollTo }) {
+  const { playHover, playClick } = useSound();
   return (
     <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
       {/* Logo */}
@@ -38,7 +40,8 @@ export default function Sidebar({ sidebarOpen, activeSection, scrollTo }) {
         {navLinks.map((l) => (
           <button
             key={l.label}
-            onClick={() => scrollTo(l.href)}
+            onClick={() => { playClick(); scrollTo(l.href); }}
+            onMouseEnter={playHover}
             className={`sidebar-link${activeSection === l.href.slice(1) ? " active" : ""}`}
           >
             <span className="sidebar-link-icon">{l.icon}</span>
@@ -86,6 +89,8 @@ export default function Sidebar({ sidebarOpen, activeSection, scrollTo }) {
           rel="noopener noreferrer"
           className="btn-yellow"
           style={{ width: "100%", padding: "10px 16px", fontSize: 13, borderRadius: 10 }}
+          onMouseEnter={playHover}
+          onClick={playClick}
         >
           <IconWhatsApp size={15} /> Hire Me
         </a>
