@@ -12,10 +12,13 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { IconWhatsApp } from "./components/icons";
 import { WHATSAPP_NUMBER } from "./components/data";
+import Loader from "./components/Loader";
+import ThreeBackground from "./components/ThreeBackground";
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const ids = ["hero", "about", "skills", "projects", "experience", "contact"];
@@ -34,8 +37,17 @@ export default function Home() {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
+  useEffect(() => {
+    document.body.style.overflow = loading ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [loading]);
+
   return (
-    <div className="noise" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
+    <>
+      {loading && <Loader onFinish={() => setLoading(false)} />}
+      <div className="noise page-content" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
+
+      <ThreeBackground />
 
       {/* Animated glow orbs */}
       <div className="glow-bg">
@@ -87,6 +99,7 @@ export default function Home() {
         <IconWhatsApp size={26} />
       </a>
 
-    </div>
+      </div>
+    </>
   );
 }
