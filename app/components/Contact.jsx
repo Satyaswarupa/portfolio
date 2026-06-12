@@ -21,13 +21,13 @@ export default function Contact() {
             <h3 style={{ fontWeight: 700, fontSize: 22, marginBottom: 24 }}>Get in Touch</h3>
 
             {/* WhatsApp CTA */}
-            <div style={{
-              background: "linear-gradient(135deg, rgba(37,211,102,0.08), rgba(18,140,126,0.08))",
-              border: "1px solid rgba(37,211,102,0.2)",
-              borderRadius: 16, padding: 24, marginBottom: 24,
+            <div className="glass-card" style={{
+              background: "linear-gradient(160deg, rgba(37,211,102,0.1), rgba(18,140,126,0.04))",
+              border: "1px solid rgba(37,211,102,0.22)",
+              padding: 24, marginBottom: 24,
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(37,211,102,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#25d366" }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(37,211,102,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#25d366", boxShadow: "0 0 18px rgba(37,211,102,0.3)" }}>
                   <IconWhatsApp size={24} />
                 </div>
                 <div>
@@ -49,8 +49,8 @@ export default function Contact() {
               { icon: <IconLinkedIn size={20} />, label: "LinkedIn", value: "linkedin.com/in/satyaswarupa", color: "#0077b5" },
               { icon: <IconGithub size={20} />, label: "GitHub", value: "github.com/satyaswarupa", color: "#f5f0e8" },
             ].map(({ icon, label, value, color }) => (
-              <div key={label} style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: `${color}18`, display: "flex", alignItems: "center", justifyContent: "center", color, flexShrink: 0 }}>
+              <div key={label} className="contact-info-row">
+                <div className="contact-info-icon" style={{ background: `${color}18`, border: `1px solid ${color}30`, color }}>
                   {icon}
                 </div>
                 <div>

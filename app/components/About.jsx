@@ -16,19 +16,22 @@ export default function About({ scrollTo }) {
               style={{
                 width: 260, height: 260, borderRadius: "50%",
                 background: "linear-gradient(135deg, #f5c400 0%, #f59e0b 100%)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 72, fontWeight: 900, color: "#000",
+                padding: 4,
                 boxShadow: "0 0 60px rgba(245,196,0,0.4), 0 0 120px rgba(245,158,11,0.2)",
                 border: "3px solid rgba(245,196,0,0.4)",
               }}
               className="float"
             >
-              SP
+              <img
+                src="https://media.licdn.com/dms/image/v2/D5603AQEaANuMLmVfvQ/profile-displayphoto-crop_800_800/B56ZwZuOfzK8AI-/0/1769958076190?e=1782950400&v=beta&t=XT-cfkHtkeRA08jfCRde8IUvpQvzrVClkSHY358pNHI"
+                alt="Satyaswarupa Parida"
+                style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover", display: "block" }}
+              />
             </div>
-            <div style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", background: "rgba(245,196,0,0.12)", border: "1px solid rgba(245,196,0,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)" }}>
+            <div className="float" style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", background: "rgba(245,196,0,0.12)", border: "1px solid rgba(245,196,0,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)", boxShadow: "0 10px 30px -8px rgba(245,196,0,0.4)", animationDelay: "-2s" }}>
               ⚡ 2+ Years
             </div>
-            <div style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)" }}>
+            <div className="float" style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)", boxShadow: "0 10px 30px -8px rgba(245,158,11,0.4)", animationDelay: "-4s" }}>
               🚀 10+ Projects
             </div>
           </div>

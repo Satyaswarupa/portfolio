@@ -51,18 +51,9 @@ export default function Sidebar({ sidebarOpen, activeSection, scrollTo }) {
 
         <span className="sidebar-nav-label" style={{ marginTop: 16 }}>Quick Stats</span>
         {quickStats.map(({ val, label }) => (
-          <div
-            key={label}
-            style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              padding: "8px 14px", marginBottom: 2,
-              borderRadius: 8,
-              background: "rgba(245,196,0,0.04)",
-              border: "1px solid rgba(245,196,0,0.08)",
-            }}
-          >
-            <span style={{ fontSize: 12, color: "rgba(245,240,232,0.45)" }}>{label}</span>
-            <span style={{ fontSize: 14, fontWeight: 700, color: "#f5c400" }}>{val}</span>
+          <div key={label} className="sidebar-stat-row">
+            <span className="sidebar-stat-label">{label}</span>
+            <span className="sidebar-stat-value">{val}</span>
           </div>
         ))}
       </nav>

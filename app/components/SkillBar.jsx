@@ -15,10 +15,10 @@ export default function SkillBar({ name, level, icon }) {
   }, [level]);
 
   return (
-    <div ref={ref} className="glass-card rounded-2xl p-5">
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 22 }}>{icon}</span>
+    <div ref={ref} className="glass-card" style={{ padding: 20 }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div className="skill-icon-badge">{icon}</div>
           <span style={{ fontWeight: 600, fontSize: 14, color: "#f5f0e8" }}>{name}</span>
         </div>
         <span style={{ fontSize: 13, color: "#f5c400", fontWeight: 700 }}>{level}%</span>
