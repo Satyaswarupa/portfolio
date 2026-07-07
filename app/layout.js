@@ -49,11 +49,20 @@ export const metadata = {
     siteName: SITE_NAME,
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/satyaswarupa-parida.jpg",
+        width: 400,
+        height: 400,
+        alt: TITLE,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
+    images: ["/satyaswarupa-parida.jpg"],
   },
   robots: {
     index: true,
@@ -75,6 +84,7 @@ const personJsonLd = {
   alternateName: "Rabble Razz",
   jobTitle: "MERN Stack Developer & UI Designer",
   url: SITE_URL,
+  image: `${SITE_URL}/satyaswarupa-parida.jpg`,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Bhadrak",

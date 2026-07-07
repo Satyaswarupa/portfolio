@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { IconWhatsApp, IconMail } from "./icons";
 import { WHATSAPP_NUMBER } from "./data";
 import { useSound } from "./AudioManager";
@@ -22,9 +23,11 @@ export default function About({ scrollTo }) {
               }}
               className="float"
             >
-              <img
-                src="https://media.licdn.com/dms/image/v2/D5603AQEaANuMLmVfvQ/profile-displayphoto-crop_800_800/B56ZwZuOfzK8AI-/0/1769958076190?e=1782950400&v=beta&t=XT-cfkHtkeRA08jfCRde8IUvpQvzrVClkSHY358pNHI"
+              <Image
+                src="/satyaswarupa-parida.jpg"
                 alt="Satyaswarupa Parida"
+                width={260}
+                height={260}
                 style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover", display: "block" }}
               />
             </div>
