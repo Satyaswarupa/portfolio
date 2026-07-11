@@ -12,7 +12,7 @@ export default function Projects() {
         <SectionHeading label="Projects" title="Featured" highlight="Work" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 32 }}>
           {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 80} className="glass-card" style={{ display: "flex", flexDirection: "column" }}>
+            <Reveal key={p.title} delay={i * 80} className="neu-card" style={{ display: "flex", flexDirection: "column" }}>
               {/* Image with gradient overlay + floating tags */}
               <div className="project-image-wrap">
                 <img src={p.image} alt={p.title} className="project-image" />

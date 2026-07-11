@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import { IconWhatsApp } from "./components/icons";
 import { WHATSAPP_NUMBER } from "./components/data";
 import Loader from "./components/Loader";
-import ThreeBackground from "./components/ThreeBackground";
 import { AudioProvider } from "./components/AudioManager";
 
 export default function Home() {
@@ -46,16 +45,7 @@ export default function Home() {
   return (
     <AudioProvider>
       {loading && <Loader onFinish={() => setLoading(false)} />}
-      <div className="noise page-content" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
-
-      <ThreeBackground activeSection={activeSection} />
-
-      {/* Animated glow orbs */}
-      <div className="glow-bg">
-        <div className="glow-orb glow-orb-1" />
-        <div className="glow-orb glow-orb-2" />
-        <div className="glow-orb glow-orb-3" />
-      </div>
+      <div className="page-content" style={{ display: "flex", minHeight: "100vh", color: "#f5f0e8" }}>
 
       <Sidebar
         sidebarOpen={sidebarOpen}
@@ -87,15 +77,16 @@ export default function Home() {
         style={{
           position: "fixed", bottom: 28, right: 28, zIndex: 200,
           width: 56, height: 56, borderRadius: "50%",
-          background: "linear-gradient(135deg,#25d366,#128c7e)",
+          background: "linear-gradient(145deg,#25d366,#128c7e)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          color: "white", boxShadow: "0 8px 30px rgba(37,211,102,0.5)",
+          color: "white",
+          boxShadow: "7px 7px 15px var(--neu-dark), -5px -5px 13px rgba(37,211,102,0.1)",
           transition: "transform 0.2s, box-shadow 0.2s",
           textDecoration: "none",
         }}
         title="Chat on WhatsApp"
-        onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 12px 40px rgba(37,211,102,0.7)"; }}
-        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 8px 30px rgba(37,211,102,0.5)"; }}
+        onMouseEnter={(e) => { e.currentTarget.style.transform = "scale(1.08)"; e.currentTarget.style.boxShadow = "9px 9px 19px var(--neu-dark), -6px -6px 16px rgba(37,211,102,0.16), 0 8px 24px rgba(37,211,102,0.35)"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "7px 7px 15px var(--neu-dark), -5px -5px 13px rgba(37,211,102,0.1)"; }}
       >
         <IconWhatsApp size={26} />
       </a>

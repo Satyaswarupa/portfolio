@@ -15,7 +15,7 @@ export default function SkillBar({ name, level, icon }) {
   }, [level]);
 
   return (
-    <div ref={ref} className="glass-card" style={{ padding: 20 }}>
+    <div ref={ref} className="neu-card" style={{ padding: 20 }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div className="skill-icon-badge">{icon}</div>

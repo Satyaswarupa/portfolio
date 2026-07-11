@@ -18,8 +18,7 @@ export default function About({ scrollTo }) {
                 width: 260, height: 260, borderRadius: "50%",
                 background: "linear-gradient(135deg, #f5c400 0%, #f59e0b 100%)",
                 padding: 4,
-                boxShadow: "0 0 60px rgba(245,196,0,0.4), 0 0 120px rgba(245,158,11,0.2)",
-                border: "3px solid rgba(245,196,0,0.4)",
+                boxShadow: "14px 14px 30px var(--neu-dark), -10px -10px 24px rgba(245,196,0,0.06)",
               }}
               className="float"
             >
@@ -31,15 +30,13 @@ export default function About({ scrollTo }) {
                 style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover", display: "block" }}
               />
             </div>
-            <div className="float" style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", background: "rgba(245,196,0,0.12)", border: "1px solid rgba(245,196,0,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)", boxShadow: "0 10px 30px -8px rgba(245,196,0,0.4)", animationDelay: "-2s" }}>
+            <div className="float neu-flat-sm" style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#f5c400", animationDelay: "-2s" }}>
               ⚡ 2+ Years
             </div>
-            <div className="float" style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", borderRadius: 12, fontSize: 13, fontWeight: 600, backdropFilter: "blur(10px)", boxShadow: "0 10px 30px -8px rgba(245,158,11,0.4)", animationDelay: "-4s" }}>
+            <div className="float neu-flat-sm" style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#f59e0b", animationDelay: "-4s" }}>
               🚀 10+ Projects
             </div>
           </div>
-          <div style={{ position: "absolute", width: 300, height: 300, borderRadius: "50%", border: "1px solid rgba(245,196,0,0.12)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }} />
-          <div style={{ position: "absolute", width: 360, height: 360, borderRadius: "50%", border: "1px solid rgba(245,196,0,0.06)", top: "50%", left: "50%", transform: "translate(-50%,-50%)" }} />
         </Reveal>
 
         {/* Text */}

@@ -21,13 +21,11 @@ export default function Contact() {
             <h3 style={{ fontWeight: 700, fontSize: 22, marginBottom: 24 }}>Get in Touch</h3>
 
             {/* WhatsApp CTA */}
-            <div className="glass-card" style={{
-              background: "linear-gradient(160deg, rgba(37,211,102,0.1), rgba(18,140,126,0.04))",
-              border: "1px solid rgba(37,211,102,0.22)",
+            <div className="neu-card" style={{
               padding: 24, marginBottom: 24,
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(37,211,102,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "#25d366", boxShadow: "0 0 18px rgba(37,211,102,0.3)" }}>
+                <div className="neu-flat-sm" style={{ width: 44, height: 44, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", color: "#25d366" }}>
                   <IconWhatsApp size={24} />
                 </div>
                 <div>
@@ -50,7 +48,7 @@ export default function Contact() {
               { icon: <IconGithub size={20} />, label: "GitHub", value: "github.com/satyaswarupa", color: "#f5f0e8" },
             ].map(({ icon, label, value, color }) => (
               <div key={label} className="contact-info-row">
-                <div className="contact-info-icon" style={{ background: `${color}18`, border: `1px solid ${color}30`, color }}>
+                <div className="contact-info-icon" style={{ color }}>
                   {icon}
                 </div>
                 <div>
@@ -62,7 +60,7 @@ export default function Contact() {
           </Reveal>
 
           {/* Form */}
-          <Reveal delay={120} className="glass-card" style={{ borderRadius: 24, padding: 40 }}>
+          <Reveal delay={120} className="neu-card" style={{ borderRadius: 24, padding: 40 }}>
             <h3 style={{ fontWeight: 700, fontSize: 20, marginBottom: 8 }}>Send a Message</h3>
             <p style={{ color: "rgba(245,240,232,0.45)", fontSize: 14, marginBottom: 28 }}>
               Fill in the form and I'll receive your message directly on WhatsApp.

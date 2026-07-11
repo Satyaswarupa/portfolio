@@ -15,10 +15,10 @@ export default function Experience() {
                 position: "absolute", left: -46, top: 6,
                 width: 16, height: 16, borderRadius: "50%",
                 background: "linear-gradient(135deg,#f5c400,#f59e0b)",
-                border: "3px solid #080800",
+                border: "3px solid #201e1a",
                 boxShadow: "0 0 14px rgba(245,196,0,0.7)",
               }} />
-              <div className="glass-card" style={{ borderRadius: 16, padding: 28 }}>
+              <div className="neu-card" style={{ borderRadius: 16, padding: 28 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
                   <h3 style={{ fontWeight: 700, fontSize: 17 }}>{exp.role}</h3>
                   <span style={{ fontSize: 12, color: "#f5c400", background: "rgba(245,196,0,0.12)", border: "1px solid rgba(245,196,0,0.28)", borderRadius: 9999, padding: "4px 12px", fontWeight: 600 }}>

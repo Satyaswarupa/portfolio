@@ -9,18 +9,10 @@ export default function Hero({ scrollTo }) {
     <section
       id="hero"
       style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
-      className="bg-grid"
     >
-      <div className="blob" style={{ width: 600, height: 600, background: "#f5c400", top: -120, left: -200 }} />
-      <div className="blob" style={{ width: 480, height: 480, background: "#f59e0b", bottom: -100, right: -150 }} />
-      <div className="blob" style={{ width: 280, height: 280, background: "#fbbf24", top: "38%", left: "50%", opacity: 0.07 }} />
-
       <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "80px 24px 0", maxWidth: 860, margin: "0 auto" }}>
         {/* Availability badge */}
-        <div className="glass-pill" style={{
-          background: "rgba(37,211,102,0.08)", border: "1px solid rgba(37,211,102,0.25)",
-          marginBottom: 32,
-        }}>
+        <div className="neu-pill" style={{ marginBottom: 32 }}>
           <span style={{ width: 8, height: 8, background: "#25d366", borderRadius: "50%", display: "inline-block", boxShadow: "0 0 10px rgba(37,211,102,0.8)" }} className="pulse-glow" />
           <span style={{ fontSize: 13, color: "#25d366", fontWeight: 500 }}>Available for new projects</span>
         </div>
@@ -54,7 +46,7 @@ export default function Hero({ scrollTo }) {
             { val: 2,  suffix: "+", label: "Years Exp." },
             { val: 0, suffix: "+", label: "Happy Clients" },
           ].map(({ val, suffix, label }) => (
-            <div key={label} className="glass-card" style={{ textAlign: "center", padding: "18px 8px" }}>
+            <div key={label} className="neu-card" style={{ textAlign: "center", padding: "18px 8px" }}>
               <div style={{ fontSize: "clamp(26px, 4.5vw, 38px)", fontWeight: 900, color: "#f5c400" }}>
                 <Counter target={val} suffix={suffix} />
               </div>
