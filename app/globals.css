@@ -3,15 +3,15 @@
 :root {
   --background: #201e1a;
   --foreground: #f5f0e8;
-  --accent: #f5c400;
-  --accent-glow: #fbbf24;
-  --accent-secondary: #f59e0b;
+  --accent: #3b9eff;
+  --accent-glow: #60a5fa;
+  --accent-secondary: #2563eb;
   --sidebar-width: 280px;
 
   /* ── Neumorphic shadow pair — light source from the top-left ── */
   --neu-dark: rgba(0, 0, 0, 0.6);
   --neu-light: rgba(255, 248, 227, 0.05);
-  --neu-glow: rgba(245, 196, 0, 0.22);
+  --neu-glow: rgba(59, 158, 255, 0.22);
 
   /* ── Molded-surface gradients: subtle diagonal sheen, not a flat fill.
      Raised catches light top-left → dark bottom-right (matches --neu-dark/light offsets).
@@ -38,11 +38,11 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--background); }
-::-webkit-scrollbar-thumb { background: #f5c400; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #3b9eff; border-radius: 3px; }
 
 /* ── Gradient text ── */
 .gradient-text {
-  background: linear-gradient(135deg, #f5c400 0%, #fbbf24 40%, #f59e0b 70%, #f5c400 100%);
+  background: linear-gradient(135deg, #3b9eff 0%, #60a5fa 40%, #2563eb 70%, #3b9eff 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -54,7 +54,7 @@ body {
   50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-.text-glow { text-shadow: 0 0 40px rgba(245, 196, 0, 0.35); }
+.text-glow { text-shadow: 0 0 40px rgba(59, 158, 255, 0.35); }
 
 /* ── Animations ── */
 @keyframes float {
@@ -120,12 +120,12 @@ body {
   box-shadow: 5px 5px 12px var(--neu-dark), -4px -4px 10px var(--neu-light),
               inset 0 1px 0 rgba(255, 255, 255, 0.03);
   font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
-  color: #f5c400;
+  color: #3b9eff;
 }
 .section-badge-dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: #f5c400;
-  box-shadow: 0 0 10px rgba(245, 196, 0, 0.9);
+  background: #3b9eff;
+  box-shadow: 0 0 10px rgba(59, 158, 255, 0.9);
   animation: pulse-glow 2s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -167,11 +167,11 @@ body {
 }
 .skill-bar-fill {
   height: 100%; border-radius: 9999px;
-  background: linear-gradient(90deg, #f5c400, #fbbf24, #f59e0b, #f5c400);
+  background: linear-gradient(90deg, #3b9eff, #60a5fa, #2563eb, #3b9eff);
   background-size: 200% 100%;
   animation: skill-shimmer 3s linear infinite;
   transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 12px rgba(245, 196, 0, 0.55);
+  box-shadow: 0 0 12px rgba(59, 158, 255, 0.55);
 }
 @keyframes skill-shimmer {
   0% { background-position: 0% 0; }
@@ -182,7 +182,21 @@ body {
 .project-image-wrap {
   position: relative;
   width: 100%;
-  padding-bottom: 62%;
+  flex: 0 0 38%;
+  overflow: hidden;
+}
+.project-title-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.project-desc-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .project-image {
@@ -214,15 +228,59 @@ body {
   transition: all 0.25s ease; text-decoration: none; cursor: pointer;
 }
 
+/* ── Projects horizontal scroll (GSAP-driven at all sizes: vertical scroll/swipe pans the row) ──
+   The section is locked to exactly one viewport tall, so it "fits to screen" the moment
+   normal scrolling brings it into view; only then does the pinned horizontal pan begin. */
+.projects-section {
+  height: 100vh;
+  height: 100svh; /* stable on mobile browsers that resize 100vh as the URL bar hides/shows */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(24px, 6vh, 90px) 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.projects-track-wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.projects-track {
+  display: flex;
+  gap: clamp(16px, 4vw, 32px);
+  width: max-content;
+  padding: 8px 24px;
+}
+.projects-card {
+  width: min(75vw, 300px);
+  height: clamp(360px, 52vh, 420px);
+  flex-shrink: 0;
+}
+
 /* ── Timeline ── */
 .timeline-line {
   position: absolute; left: 20px; top: 0; bottom: 0;
   width: 2px;
-  background: linear-gradient(to bottom, #f5c400, #f59e0b, transparent);
-  box-shadow: 0 0 12px rgba(245, 196, 0, 0.4);
+  background: linear-gradient(to bottom, #3b9eff, #2563eb, transparent);
+  box-shadow: 0 0 12px rgba(59, 158, 255, 0.4);
 }
 
 section { position: relative; }
+
+/* ── Hero background image ── */
+.hero-bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(180deg, rgba(32, 30, 26, 0.55) 0%, rgba(32, 30, 26, 0.85) 75%, var(--background) 100%),
+    url("https://wallpapercave.com/wp/wp4489084.jpg");
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
 
 /* ── Form inputs (pressed/concave — carved into the surface) ── */
 .form-input {
@@ -238,11 +296,11 @@ section { position: relative; }
 .form-input::placeholder { color: rgba(245, 240, 232, 0.3); }
 .form-input:focus {
   box-shadow: inset 5px 5px 11px var(--neu-dark), inset -4px -4px 10px var(--neu-light),
-              0 0 0 2px rgba(245, 196, 0, 0.45);
+              0 0 0 2px rgba(59, 158, 255, 0.45);
 }
 
 /* ── Buttons (raised — pop off the surface, press inward on click) ── */
-.btn-primary, .btn-yellow, .btn-whatsapp {
+.btn-primary, .btn-accent, .btn-whatsapp {
   position: relative;
   transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease, background 0.22s ease;
 }
@@ -255,7 +313,7 @@ section { position: relative; }
   border-radius: 14px;
   box-shadow: 8px 8px 18px var(--neu-dark), -6px -6px 16px var(--neu-light),
               inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  color: #f5c400; font-weight: 600; font-size: 15px;
+  color: #3b9eff; font-weight: 600; font-size: 15px;
   cursor: pointer; text-decoration: none;
 }
 .btn-primary:hover {
@@ -269,23 +327,23 @@ section { position: relative; }
   transform: translateY(0);
 }
 
-.btn-yellow {
+.btn-accent {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 14px 32px;
-  background: linear-gradient(145deg, #ffd23f, #e0b000);
+  background: linear-gradient(145deg, #6ab8ff, #0b5fd9);
   border-radius: 14px; border: none;
-  box-shadow: 8px 8px 18px var(--neu-dark), -5px -5px 14px rgba(245, 196, 0, 0.1),
+  box-shadow: 8px 8px 18px var(--neu-dark), -5px -5px 14px rgba(59, 158, 255, 0.1),
               inset 0 1px 0 rgba(255, 255, 255, 0.35);
-  color: #1a1500; font-weight: 700; font-size: 15px;
+  color: #ffffff; font-weight: 700; font-size: 15px;
   cursor: pointer; text-decoration: none;
 }
-.btn-yellow:hover {
-  box-shadow: 11px 11px 24px var(--neu-dark), -6px -6px 18px rgba(245, 196, 0, 0.18),
-              0 10px 30px -6px rgba(245, 196, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+.btn-accent:hover {
+  box-shadow: 11px 11px 24px var(--neu-dark), -6px -6px 18px rgba(59, 158, 255, 0.18),
+              0 10px 30px -6px rgba(59, 158, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
-.btn-yellow:active {
-  box-shadow: inset 4px 4px 9px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(255, 224, 130, 0.25);
+.btn-accent:active {
+  box-shadow: inset 4px 4px 9px rgba(0, 0, 0, 0.4), inset -3px -3px 7px rgba(160, 210, 255, 0.25);
   transform: translateY(0);
 }
 
@@ -316,7 +374,7 @@ section { position: relative; }
   background: var(--neu-surface);
   border-radius: 9999px;
   box-shadow: 4px 4px 10px var(--neu-dark), -3px -3px 8px var(--neu-light);
-  font-size: 12px; font-weight: 600; color: #fbbf24;
+  font-size: 12px; font-weight: 600; color: #60a5fa;
   transition: all 0.25s ease;
 }
 .tag:hover {
@@ -384,12 +442,12 @@ section { position: relative; }
   transition: box-shadow 0.22s ease, color 0.22s ease, background 0.22s ease; text-align: left; width: 100%;
 }
 .sidebar-link:hover {
-  color: #f5c400;
+  color: #3b9eff;
   background: var(--neu-surface);
   box-shadow: 4px 4px 10px var(--neu-dark), -3px -3px 8px var(--neu-light);
 }
 .sidebar-link.active {
-  color: #f5c400;
+  color: #3b9eff;
   font-weight: 600;
   background: var(--neu-surface-pressed);
   box-shadow: inset 3px 3px 7px var(--neu-dark), inset -3px -3px 7px var(--neu-light);
@@ -415,7 +473,7 @@ section { position: relative; }
   transition: all 0.2s ease; text-decoration: none; cursor: pointer;
 }
 .sidebar-social-btn:hover {
-  color: #f5c400;
+  color: #3b9eff;
   box-shadow: 5px 5px 12px var(--neu-dark), -4px -4px 10px var(--neu-light);
 }
 .sidebar-social-btn:active {
@@ -440,7 +498,7 @@ section { position: relative; }
   transition: box-shadow 0.2s, color 0.2s;
   display: flex; align-items: center; justify-content: center;
 }
-.menu-btn:hover { color: #f5c400; }
+.menu-btn:hover { color: #3b9eff; }
 .menu-btn:active {
   background: var(--neu-surface-pressed);
   box-shadow: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
@@ -490,13 +548,13 @@ section { position: relative; }
 .loader-letter {
   display: inline-block;
   opacity: 0;
-  color: #f5c400;
-  background: linear-gradient(135deg, #f5c400 0%, #fbbf24 40%, #f59e0b 70%, #f5c400 100%);
+  color: #3b9eff;
+  background: linear-gradient(135deg, #3b9eff 0%, #60a5fa 40%, #2563eb 70%, #3b9eff 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 40px rgba(245, 196, 0, 0.35);
+  text-shadow: 0 0 40px rgba(59, 158, 255, 0.35);
   animation:
     loader-letter-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards,
     gradient-shift 4s ease infinite;
@@ -528,8 +586,8 @@ section { position: relative; }
 }
 .loader-progress-fill {
   height: 100%; border-radius: 9999px;
-  background: linear-gradient(90deg, #f5c400, #f59e0b);
-  box-shadow: 0 0 12px rgba(245, 196, 0, 0.6);
+  background: linear-gradient(90deg, #3b9eff, #2563eb);
+  box-shadow: 0 0 12px rgba(59, 158, 255, 0.6);
   transition: width 0.1s linear;
 }
 .loader-progress-label {
@@ -569,7 +627,7 @@ section { position: relative; }
   border-radius: 50%;
   border: none;
   background: var(--neu-surface);
-  color: #f5c400;
+  color: #3b9eff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -607,7 +665,7 @@ section { position: relative; }
 .sidebar-stat-label { font-size: 12px; color: rgba(245, 240, 232, 0.45); }
 .sidebar-stat-value {
   font-size: 14px; font-weight: 800;
-  background: linear-gradient(90deg, #f5c400, #fbbf24);
+  background: linear-gradient(90deg, #3b9eff, #60a5fa);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
@@ -647,6 +705,15 @@ section { position: relative; }
   .main-content-wrapper {
     margin-left: 0 !important;
     padding-top: 60px;
+  }
+  .projects-section {
+    /* while pinned, the section's top is statically stuck at the viewport top for the
+       whole horizontal pan, so — unlike normal scroll — the fixed topbar would permanently
+       cover the heading unless content is pushed below it. Height stays 100svh so the
+       section's bottom still lands exactly on the viewport edge (no gap before Experience).
+       60px clears the topbar itself; the rest is breathing room so the badge doesn't sit
+       flush against it. */
+    padding-top: max(92px, clamp(24px, 6vh, 90px) + 60px);
   }
   .about-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
   .contact-grid { grid-template-columns: 1fr !important; }

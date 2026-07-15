@@ -17,7 +17,7 @@ export default async function Image() {
           justifyContent: "center",
           background: "#080800",
           backgroundImage:
-            "radial-gradient(circle at 18% 20%, rgba(245,196,0,0.20), transparent 45%), radial-gradient(circle at 85% 85%, rgba(245,158,11,0.16), transparent 45%)",
+            "radial-gradient(circle at 18% 20%, rgba(59,158,255,0.20), transparent 45%), radial-gradient(circle at 85% 85%, rgba(37,99,235,0.16), transparent 45%)",
           color: "#f5f0e8",
           fontFamily: "sans-serif",
         }}
@@ -27,7 +27,7 @@ export default async function Image() {
             display: "flex",
             fontSize: 26,
             fontWeight: 600,
-            color: "#f5c400",
+            color: "#3b9eff",
             letterSpacing: 6,
             textTransform: "uppercase",
             marginBottom: 28,
@@ -37,7 +37,7 @@ export default async function Image() {
         </div>
         <div style={{ display: "flex", fontSize: 96, fontWeight: 900, letterSpacing: -3 }}>
           <span>Satyaswarupa&nbsp;</span>
-          <span style={{ color: "#f5c400" }}>Parida</span>
+          <span style={{ color: "#3b9eff" }}>Parida</span>
         </div>
         <div style={{ display: "flex", fontSize: 34, marginTop: 30, color: "rgba(245,240,232,0.75)" }}>
           MERN Stack Developer &amp; UI Designer

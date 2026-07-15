@@ -78,7 +78,7 @@ export default function Sidebar({ sidebarOpen, activeSection, scrollTo }) {
           href={`https://wa.me/${WHATSAPP_NUMBER}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-yellow"
+          className="btn-accent"
           style={{ width: "100%", padding: "10px 16px", fontSize: 13, borderRadius: 10 }}
           onMouseEnter={playHover}
           onClick={playClick}

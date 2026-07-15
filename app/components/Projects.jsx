@@ -1,18 +1,65 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionHeading from "./SectionHeading";
-import { IconStar, IconGithub, IconExternalLink } from "./icons";
+import { IconGithub, IconExternalLink } from "./icons";
 import { projects } from "./data";
 import { useSound } from "./AudioManager";
-import Reveal from "./Reveal";
+
+// >1 stretches the pinned scroll range so the horizontal pan reads as a
+// deliberate glide instead of flying by in a single wheel tick/swipe.
+const SCROLL_SPEED = 1.7;
 
 export default function Projects() {
   const { playHover, playClick } = useSound();
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+
+  // Vertical scroll/swipe pins the section and drives the project row horizontally,
+  // at every viewport size (phones included).
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
+    const section = sectionRef.current;
+    const track = trackRef.current;
+    if (!section || !track) return;
+
+    const getDistance = () => Math.max(0, track.scrollWidth - section.clientWidth);
+
+    const ctx = gsap.context(() => {
+      if (getDistance() <= 0) return;
+
+      gsap.to(track, {
+        x: () => -getDistance(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${getDistance() * SCROLL_SPEED}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="projects" style={{ padding: "120px 24px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <SectionHeading label="Projects" title="Featured" highlight="Work" />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 32 }}>
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 80} className="neu-card" style={{ display: "flex", flexDirection: "column" }}>
+    <section id="projects" ref={sectionRef} className="projects-section">
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", flexShrink: 0 }}>
+        <SectionHeading label="Projects" title="Featured" highlight="Work" compact />
+      </div>
+
+      <div className="projects-track-wrap">
+        <div ref={trackRef} className="projects-track">
+          {projects.map((p) => (
+            <div key={p.title} className="neu-card projects-card" style={{ display: "flex", flexDirection: "column" }}>
               {/* Image with gradient overlay + floating tags */}
               <div className="project-image-wrap">
                 <img src={p.image} alt={p.title} className="project-image" />
@@ -31,20 +78,16 @@ export default function Projects() {
               </div>
 
               {/* Content */}
-              <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: 24 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
-                  <span style={{ width: 10, height: 10, borderRadius: "50%", background: p.color, boxShadow: `0 0 12px ${p.color}` }} />
-                  <h3 style={{ fontWeight: 700, fontSize: 18 }}>{p.title}</h3>
+              <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: 20 }}>
+                <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginBottom: 8 }}>
+                  <span style={{ width: 10, height: 10, marginTop: 6, borderRadius: "50%", background: p.color, boxShadow: `0 0 12px ${p.color}`, flexShrink: 0 }} />
+                  <h3 className="project-title-clamp" style={{ fontWeight: 700, fontSize: 16 }}>{p.title}</h3>
                 </div>
 
-                <p style={{ color: "rgba(245,240,232,0.55)", fontSize: 14, lineHeight: 1.8, marginBottom: 20, flex: 1 }}>{p.desc}</p>
+                <p className="project-desc-clamp" style={{ color: "rgba(245,240,232,0.55)", fontSize: 13, lineHeight: 1.6, marginBottom: 12, flex: 1 }}>{p.desc}</p>
 
-                {/* Footer with stars and buttons */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 16, borderTop: "1px solid rgba(245,240,232,0.08)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: 6, color: "#f5c400", fontSize: 13 }}>
-                    <IconStar size={14} />
-                    <span style={{ fontWeight: 600 }}>{p.stars}</span>
-                  </div>
+                {/* Footer with buttons */}
+                <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", paddingTop: 12, borderTop: "1px solid rgba(245,240,232,0.08)" }}>
                   <div style={{ display: "flex", gap: 10 }}>
                     <a
                       href={p.liveUrl}
@@ -89,7 +132,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
       </div>

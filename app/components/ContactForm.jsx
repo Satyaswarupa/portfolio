@@ -65,9 +65,6 @@ export default function ContactForm() {
           <IconWhatsApp size={20} />
           {status === "sent" ? "Message Sent! ✓" : "Send via WhatsApp"}
         </button>
-        <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ flex: 1 }}>
-          <IconWhatsApp size={18} /> Direct Chat
-        </a>
       </div>
 
       <p style={{ textAlign: "center", fontSize: 12, color: "rgba(245,240,232,0.3)", marginTop: 4 }}>

@@ -16,9 +16,9 @@ export default function About({ scrollTo }) {
             <div
               style={{
                 width: 260, height: 260, borderRadius: "50%",
-                background: "linear-gradient(135deg, #f5c400 0%, #f59e0b 100%)",
+                background: "linear-gradient(135deg, #3b9eff 0%, #2563eb 100%)",
                 padding: 4,
-                boxShadow: "14px 14px 30px var(--neu-dark), -10px -10px 24px rgba(245,196,0,0.06)",
+                boxShadow: "14px 14px 30px var(--neu-dark), -10px -10px 24px rgba(59,158,255,0.06)",
               }}
               className="float"
             >
@@ -30,10 +30,10 @@ export default function About({ scrollTo }) {
                 style={{ width: "100%", height: "100%", borderRadius: "50%", objectFit: "cover", display: "block" }}
               />
             </div>
-            <div className="float neu-flat-sm" style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#f5c400", animationDelay: "-2s" }}>
+            <div className="float neu-flat-sm" style={{ position: "absolute", top: -10, right: -30, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#3b9eff", animationDelay: "-2s" }}>
               ⚡ 2+ Years
             </div>
-            <div className="float neu-flat-sm" style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#f59e0b", animationDelay: "-4s" }}>
+            <div className="float neu-flat-sm" style={{ position: "absolute", bottom: 20, left: -40, padding: "10px 18px", borderRadius: 12, fontSize: 13, fontWeight: 600, color: "#2563eb", animationDelay: "-4s" }}>
               🚀 10+ Projects
             </div>
           </div>
@@ -42,8 +42,8 @@ export default function About({ scrollTo }) {
         {/* Text */}
         <Reveal delay={120}>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-            <div style={{ width: 40, height: 2, background: "linear-gradient(90deg,#f5c400,#f59e0b)", borderRadius: 9999 }} />
-            <span style={{ fontSize: 13, color: "#f5c400", fontWeight: 600, textTransform: "uppercase", letterSpacing: 2 }}>About Me</span>
+            <div style={{ width: 40, height: 2, background: "linear-gradient(90deg,#3b9eff,#2563eb)", borderRadius: 9999 }} />
+            <span style={{ fontSize: 13, color: "#3b9eff", fontWeight: 600, textTransform: "uppercase", letterSpacing: 2 }}>About Me</span>
           </div>
          <h2
   style={{

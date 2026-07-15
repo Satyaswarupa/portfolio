@@ -10,6 +10,8 @@ export default function Hero({ scrollTo }) {
       id="hero"
       style={{ minHeight: "100vh", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
     >
+      <div className="hero-bg" aria-hidden="true" />
+
       <div style={{ position: "relative", zIndex: 2, textAlign: "center", padding: "80px 24px 0", maxWidth: 860, margin: "0 auto" }}>
         {/* Availability badge */}
         <div className="neu-pill" style={{ marginBottom: 32 }}>
@@ -31,7 +33,7 @@ export default function Hero({ scrollTo }) {
         </p>
 
         <div className="hero-btns" style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", marginBottom: 64 }}>
-          <button onClick={() => { playClick(); scrollTo("#projects"); }} onMouseEnter={playHover} className="btn-yellow" style={{ padding: "14px 32px" }}>
+          <button onClick={() => { playClick(); scrollTo("#projects"); }} onMouseEnter={playHover} className="btn-accent" style={{ padding: "14px 32px" }}>
             <IconCode size={18} /> View Projects
           </button>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" onMouseEnter={playHover} onClick={playClick}>
@@ -47,7 +49,7 @@ export default function Hero({ scrollTo }) {
             { val: 0, suffix: "+", label: "Happy Clients" },
           ].map(({ val, suffix, label }) => (
             <div key={label} className="neu-card" style={{ textAlign: "center", padding: "18px 8px" }}>
-              <div style={{ fontSize: "clamp(26px, 4.5vw, 38px)", fontWeight: 900, color: "#f5c400" }}>
+              <div style={{ fontSize: "clamp(26px, 4.5vw, 38px)", fontWeight: 900, color: "#3b9eff" }}>
                 <Counter target={val} suffix={suffix} />
               </div>
               <div style={{ fontSize: 12, color: "rgba(245,240,232,0.4)", marginTop: 4 }}>{label}</div>

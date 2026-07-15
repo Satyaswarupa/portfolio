@@ -43,7 +43,7 @@ export default function Contact() {
 
             {/* Other contacts */}
             {[
-              { icon: <IconMail size={20} />, label: "Email", value: "satyaswarupaparida130@gmail.com", color: "#f5c400" },
+              { icon: <IconMail size={20} />, label: "Email", value: "satyaswarupaparida130@gmail.com", color: "#3b9eff" },
               { icon: <IconLinkedIn size={20} />, label: "LinkedIn", value: "linkedin.com/in/satyaswarupa", color: "#0077b5" },
               { icon: <IconGithub size={20} />, label: "GitHub", value: "github.com/satyaswarupa", color: "#f5f0e8" },
             ].map(({ icon, label, value, color }) => (

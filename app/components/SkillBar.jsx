@@ -21,7 +21,7 @@ export default function SkillBar({ name, level, icon }) {
           <div className="skill-icon-badge">{icon}</div>
           <span style={{ fontWeight: 600, fontSize: 14, color: "#f5f0e8" }}>{name}</span>
         </div>
-        <span style={{ fontSize: 13, color: "#f5c400", fontWeight: 700 }}>{level}%</span>
+        <span style={{ fontSize: 13, color: "#3b9eff", fontWeight: 700 }}>{level}%</span>
       </div>
       <div className="skill-bar">
         <div className="skill-bar-fill" style={{ width: `${fill}%` }} />

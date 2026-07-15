@@ -33,7 +33,7 @@ export default function Loader({ onFinish }) {
     const particleGeo = new THREE.BufferGeometry();
     particleGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
     const particleMat = new THREE.PointsMaterial({
-      color: 0xf5c400,
+      color: 0x3b9eff,
       size: 0.035,
       transparent: true,
       opacity: 0.7,
@@ -45,7 +45,7 @@ export default function Loader({ onFinish }) {
     // Rotating wireframe core
     const coreGeo = new THREE.IcosahedronGeometry(1.6, 1);
     const coreMat = new THREE.MeshBasicMaterial({
-      color: 0xfbbf24,
+      color: 0x60a5fa,
       wireframe: true,
       transparent: true,
       opacity: 0.35,
@@ -55,7 +55,7 @@ export default function Loader({ onFinish }) {
 
     const innerGeo = new THREE.IcosahedronGeometry(1.05, 0);
     const innerMat = new THREE.MeshBasicMaterial({
-      color: 0xf59e0b,
+      color: 0x2563eb,
       wireframe: true,
       transparent: true,
       opacity: 0.5,
@@ -158,9 +158,9 @@ export default function Loader({ onFinish }) {
           />
           <defs>
             <linearGradient id="loaderGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#f5c400" />
-              <stop offset="50%" stopColor="#fbbf24" />
-              <stop offset="100%" stopColor="#f59e0b" />
+              <stop offset="0%" stopColor="#3b9eff" />
+              <stop offset="50%" stopColor="#60a5fa" />
+              <stop offset="100%" stopColor="#2563eb" />
             </linearGradient>
           </defs>
         </svg>
