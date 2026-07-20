@@ -53,6 +53,29 @@ export const projects = [
   },
 ];
 
+export const faqs = [
+  {
+    q: "What services do you offer?",
+    a: "I build web products end to end: responsive marketing sites, admin dashboards, REST APIs, and complete MERN stack applications. That covers UI design, frontend work in React and Next.js, backend services in Node.js and Express, MongoDB or PostgreSQL data modelling, and deployment.",
+  },
+  {
+    q: "Which technologies do you work with?",
+    a: "My daily stack is React, Next.js, TypeScript, Tailwind CSS, Node.js, Express and MongoDB. I also use Python for scripting and automation, Docker for containerised deployments, and GSAP or Three.js when a project calls for motion and 3D.",
+  },
+  {
+    q: "Do you work with clients outside India?",
+    a: "Yes. I'm based in Bhadrak, Odisha and work remotely with clients across the United States, Europe and Australia. I keep overlapping hours for calls, send short async progress updates, and deliver through GitHub so you always own the code.",
+  },
+  {
+    q: "How long does a typical project take?",
+    a: "A single-page marketing or portfolio site usually takes one to two weeks. A dashboard or full stack application with authentication, an API and a database typically runs four to eight weeks depending on scope. You get a milestone breakdown before any work starts.",
+  },
+  {
+    q: "How do we get started?",
+    a: "Message me on WhatsApp or send an email describing what you need. I'll reply with questions, a suggested approach and a fixed quote, usually within a day. Once we agree on scope, I start with a design pass so you see the product before it's built.",
+  },
+];
+
 export const experience = [
   {
     role: "MERN Stack Developer",

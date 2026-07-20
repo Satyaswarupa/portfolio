@@ -79,6 +79,17 @@ export default function About({ scrollTo }) {
 >
   With 1+ year of professional experience at Confluentis Consultant Pvt. Ltd., I have worked on enterprise applications, dashboard development, cost monitoring solutions, and modern web platforms. I enjoy transforming business requirements into efficient, high-quality digital products with clean code and intuitive user experiences.
 </p>
+
+<p
+  style={{
+    color: "rgba(245,240,232,0.65)",
+    lineHeight: 1.9,
+    marginBottom: 32,
+    fontSize: 15,
+  }}
+>
+  Outside client work I contribute to open source, experiment with animation libraries like GSAP and Three.js, and build small tools that solve problems I keep running into. If you want a developer who cares about performance, accessibility, and the details that make an interface feel right, I'd like to hear about your project.
+</p>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 32 }}>
             {["React", "Next.js", "Node.js", "Python", "TypeScript", "MongoDB"].map((t) => (
               <span key={t} className="tag">{t}</span>

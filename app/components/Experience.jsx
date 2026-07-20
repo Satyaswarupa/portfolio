@@ -6,7 +6,12 @@ export default function Experience() {
   return (
     <section id="experience" style={{ padding: "120px 24px", background: "rgba(59,158,255,0.02)" }}>
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
-        <SectionHeading label="Experience" title="My" highlight="Journey" />
+        <SectionHeading
+          label="Experience"
+          title="My"
+          highlight="Journey"
+          description="Where I've worked and what I've shipped. My focus so far has been enterprise dashboards, cost monitoring tools and internal platforms used by real teams every day."
+        />
         <div style={{ position: "relative", paddingLeft: 56 }}>
           <div className="timeline-line" />
           {experience.map((exp, i) => (

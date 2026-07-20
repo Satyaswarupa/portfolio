@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, SITE_NAME } from "./lib/seo";
+import { faqs } from "./components/data";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +15,7 @@ const geistMono = Geist_Mono({
 
 const TITLE = "Satyaswarupa Parida — MERN Stack Developer & UI Designer";
 const DESCRIPTION =
-  "Satyaswarupa Parida, also known as Rabble Razz, is a MERN Stack Developer and UI Designer based in Bhadrak, Odisha, building fast, modern web applications for clients across the US.";
+  "Satyaswarupa Parida (Rabble Razz) is a MERN stack developer and UI designer in Bhadrak, Odisha, building fast React and Next.js apps for global clients.";
 
 /** @type {import("next").Metadata} */
 export const metadata = {
@@ -97,6 +98,16 @@ const personJsonLd = {
   ],
 };
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
@@ -108,6 +119,12 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c"),
           }}
         />
         {children}

@@ -53,7 +53,13 @@ export default function Projects() {
   return (
     <section id="projects" ref={sectionRef} className="projects-section">
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px", flexShrink: 0 }}>
-        <SectionHeading label="Projects" title="Featured" highlight="Work" compact />
+        <SectionHeading
+          label="Projects"
+          title="Featured"
+          highlight="Work"
+          description="A selection of applications I've designed, built and deployed. Each one is live and open source, so you can try the product and read the code behind it."
+          compact
+        />
       </div>
 
       <div className="projects-track-wrap">
