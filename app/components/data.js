@@ -1,5 +1,8 @@
 export const WHATSAPP_NUMBER = "917008671443";
 
+export const MONEYJOT_APK_URL =
+  "https://github.com/Satyaswarupa/moneyjot-app/releases/download/v1.0.0/application-f9d0904e-f675-436d-980c-4cc4d72c8317.1.apk";
+
 export const skills = [
   { name: "React / Next.js", level: 90, icon: "⚛️" },
   { name: "TypeScript", level: 85, icon: "🔷" },

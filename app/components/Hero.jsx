@@ -1,6 +1,6 @@
 import Counter from "./Counter";
-import { IconCode, IconWhatsApp, IconArrowDown } from "./icons";
-import { WHATSAPP_NUMBER } from "./data";
+import { IconCode, IconWhatsApp, IconArrowDown, IconDownload } from "./icons";
+import { WHATSAPP_NUMBER, MONEYJOT_APK_URL } from "./data";
 import { useSound } from "./AudioManager";
 
 export default function Hero({ scrollTo }) {
@@ -38,6 +38,17 @@ export default function Hero({ scrollTo }) {
           </button>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="btn-whatsapp" onMouseEnter={playHover} onClick={playClick}>
             <IconWhatsApp size={18} /> Chat on WhatsApp
+          </a>
+          <a
+            href={MONEYJOT_APK_URL}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            onMouseEnter={playHover}
+            onClick={playClick}
+          >
+            <IconDownload size={18} /> Download MoneyJot
           </a>
         </div>
 
